@@ -1,6 +1,5 @@
 #!/bin/bash
 echo "iptables"
-#inc_scriptIptables
 # Firewall configuration
 aptitude install -y iptables
 iptables-save > /etc/iptables.up.rules

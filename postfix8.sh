@@ -1,6 +1,5 @@
 #!/bin/bash
 echo "start postfix"
-#inc_scriptPostfixIncFix
 # Email with Posfix
 rm /etc/hostname
 rm /etc/hosts
@@ -29,4 +28,3 @@ echo "mydestination = $POSTFIX_FIX, localhost.$POSTFIX_FIX, localhost" >> /etc/p
 sed -i "s/mynetworks/#mynetworks/g" /etc/postfix/main.cf
 echo "mynetworks = 127.0.0.0/8" >> /etc/postfix/main.cf
 /etc/init.d/postfix restart
-#

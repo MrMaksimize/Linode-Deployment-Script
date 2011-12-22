@@ -1,6 +1,5 @@
 #!/bin/bash
 echo "ssh"
-#inc_scriptSSH
 # Security configuration
 sed -i "s/Port 22/Port $PORT/g" /etc/ssh/sshd_config
 sed -i "s/PermitRootLogin yes/PermitRootLogin $PERMITROOTLOGIN/g" /etc/ssh/sshd_config
