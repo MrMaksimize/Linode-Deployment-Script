@@ -1,5 +1,6 @@
 #!/bin/bash
 echo "nginx compile and install"
+./home/root/deployment/variables1.sh
 #inc_scriptNginxCompile
 # Nginx to serve webs
 aptitude -y install libpcre3 libpcre3-dev libpcrecpp0 libssl-dev zlib1g-dev
@@ -68,3 +69,42 @@ esac
 exit 0' >> /etc/init.d/nginx
 chmod +x /etc/init.d/nginx && /usr/sbin/update-rc.d -f nginx defaults
 rm /usr/local/nginx/conf/nginx.conf
+echo '
+user www-data www-data;
+worker_processes  4;
+events {
+    worker_connections  1024;
+}
+http {
+    include       mime.types;
+    default_type  application/octet-stream;
+    sendfile        on;
+    tcp_nopush      on;
+    tcp_nodelay     off;
+    keepalive_timeout  5;
+    gzip  on;
+    gzip_comp_level 2;
+    gzip_proxied any;
+    gzip_types      text/plain text/css application/x-javascript text/xml application/xml application/xml+rss text/javascript;
+    include /usr/local/nginx/sites-enabled/*;
+}' >> /usr/local/nginx/conf/nginx.conf
+mkdir /usr/local/nginx/sites-available /usr/local/nginx/sites-enabled
+echo '
+server  {
+            listen       80;
+            server_name  localhost;
+            location /  {
+                    root   html;
+                    index  index.php index.html index.htm;
+       			   }
+            # redirect server error pages to the static page /50x.html
+            error_page   500 502 503 504  /50x.html;
+            location = /50x.html
+            		   {
+            			root   html;
+            		   }
+		}
+' >> /usr/local/nginx/sites-available/default
+ln -s /usr/local/nginx/sites-available/default /usr/local/nginx/sites-enabled/default
+/etc/init.d/nginx start
+#

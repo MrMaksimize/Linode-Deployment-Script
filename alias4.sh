@@ -1,5 +1,6 @@
 #!/bin/bash
 echo "aliases"
+./home/root/deployment/variables1.sh
 # Alias Commands
 echo '
 #open .bashrc

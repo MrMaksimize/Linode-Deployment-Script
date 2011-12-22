@@ -1,5 +1,6 @@
 #!/bin/bash
 echo "start postfix"
+./home/root/deployment/variables1.sh
 # Email with Posfix
 rm /etc/hostname
 rm /etc/hosts

@@ -1,5 +1,6 @@
 #!/bin/bash
 echo "php-fpm"
+./home/root/deployment/variables1.sh
 # Install PHP
 aptitude install -y php5-cli php5-common php5-suhosin
 aptitude install -y php5-fpm php5-cgi

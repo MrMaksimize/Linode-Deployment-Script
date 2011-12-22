@@ -1,5 +1,5 @@
 #!/bin/bash
-#inc_scriptNginxVhost
+./home/root/deployment/variables1.sh
 echo '
 server {
             listen   80;

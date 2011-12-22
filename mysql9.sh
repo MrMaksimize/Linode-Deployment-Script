@@ -1,5 +1,6 @@
 #!/bin/bash
 echo "mysql"
+./home/root/deployment/variables1.sh
 # MySQL
 aptitude install -y debconf-utils
 echo mysql-server mysql-server/root_password password $MYSQL_PASSWORD | debconf-set-selections

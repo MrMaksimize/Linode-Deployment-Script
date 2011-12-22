@@ -1,5 +1,6 @@
 #!/bin/bash
 echo "ssh"
+./home/root/deployment/variables1.sh
 # Security configuration
 sed -i "s/Port 22/Port $PORT/g" /etc/ssh/sshd_config
 sed -i "s/PermitRootLogin yes/PermitRootLogin $PERMITROOTLOGIN/g" /etc/ssh/sshd_config

@@ -1,5 +1,6 @@
 #!/bin/bash
 echo "user add"
+./home/root/deployment/variables1.sh
 # Add a user, its group, create user /home directory and provide root privileges
 useradd -s /bin/bash -m -d /home/$USER --user-group $USER
 touch pass.txt
