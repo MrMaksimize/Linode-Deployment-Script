@@ -25,4 +25,21 @@ export DEPS="build-essential m4 python-software-properties wget"
 
 echo $USER
 echo $PASSWORD
+echo $HOSTNAME
+echo $DOMAIN
+echo $SHORTDOMAIN
+echo $POSTFIX_FIX
+echo $LOG_FREQUENCY
+echo $LOG_ROTATE
+echo $LOCALE
+echo $CHARSET
 echo $PORT
+echo $PERMITROOTLOGIN
+echo $PASSWORDAUTHENTICATION
+echo $X11FORWARDING
+echo $USEDNS
+echo $AllowUsers
+echo $PUBLIC_KEY
+echo $MYSQL_PASSWORD
+echo $PHP_MODS
+echo $DEPS
