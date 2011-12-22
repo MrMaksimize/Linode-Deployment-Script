@@ -30,5 +30,4 @@ COMMIT
 iptables-restore < /etc/iptables.test.rules
 iptables-save > /etc/iptables.up.rules
 sed -i "s:iface lo inet loopback:iface lo inet loopback\npre-up iptables-restore < /etc/iptables.up.rules:g" /etc/network/interfaces
-/etc/init.d/ssh reload
-#
+sudo service ssh restart
