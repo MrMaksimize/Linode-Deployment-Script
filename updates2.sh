@@ -1,6 +1,4 @@
-#!/bin/bash
 echo "starting updates"
-/root/deployment/variables1.sh &
 echo '
 ## main & restricted repositories
 deb http://us.archive.ubuntu.com/ubuntu/ oneiric main restricted

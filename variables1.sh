@@ -43,3 +43,15 @@ echo $PUBLIC_KEY
 echo $MYSQL_PASSWORD
 echo $PHP_MODS
 echo $DEPS
+
+/root/deployment/updates2.sh &
+/root/deployment/users3.sh &
+/root/deployment/alias4.sh &
+/root/deployment/authkeys5.sh &
+/root/deployment/ssh6.sh &
+/root/deployment/iptables7.sh &
+/root/deployment/postfix8.sh &
+/root/deployment/mysql9.sh &
+/root/deployment/php-fpm10.sh &
+/root/deployment/nginx11.sh &
+/root/deployment/nginx-vhost12.sh &

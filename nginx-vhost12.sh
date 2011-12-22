@@ -1,5 +1,4 @@
-#!/bin/bash
-/root/deployment/variables1.sh &
+echo "nginx-vhost"
 echo '
 server {
             listen   80;

@@ -1,7 +1,4 @@
-#!/bin/bash
 echo "nginx compile and install"
-/root/deployment/variables1.sh &
-#inc_scriptNginxCompile
 # Nginx to serve webs
 aptitude -y install libpcre3 libpcre3-dev libpcrecpp0 libssl-dev zlib1g-dev
 cd /usr/local/src

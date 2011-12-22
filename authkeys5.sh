@@ -1,6 +1,4 @@
-#!/bin/bash
 echo "authkeys"
-/root/deployment/variables1.sh &
 # Setup authentication keys for easy secure login
 mkdir /home/$USER/.ssh
 echo $PUBLIC_KEY >> /home/$USER/.ssh/authorized_keys
