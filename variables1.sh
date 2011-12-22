@@ -1,5 +1,8 @@
+#!/bin/bash
 ##### VPS User Variables #####
 #
+echo "variables export starting"
+
 export USER="MrMaksimize"
 export PASSWORD="NewOrderX37"
 #
