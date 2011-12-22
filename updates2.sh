@@ -20,4 +20,3 @@ aptitude install -y $DEPS
 add-apt-repository ppa:brianmercer/php && aptitude update
 locale-gen $LOCALE.$CHARSET
 /usr/sbin/update-locale LANG=$LOCALE.$CHARSET
-#

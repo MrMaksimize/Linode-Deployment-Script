@@ -43,4 +43,3 @@ alias n2r="sudo /etc/init.d/nginx stop && sleep 2 && sudo /etc/init.d/nginx star
 alias nginxsa="cd /usr/local/nginx/sites-available"
 ' >> /home/$USER/.bashrc
 source /home/$USER/.bashrc
-#

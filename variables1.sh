@@ -9,7 +9,7 @@ export SHORTDOMAIN="geeklab.mrmaksimize"
 export POSTFIX_FIX="\$geeklab.mrmaksimize"
 export LOG_FREQUENCY="daily"
 export LOG_ROTATE="28"
-export LOCALE="en_GB"
+export LOCALE="en_US"
 export CHARSET="UTF-8"
 export PORT="22"
 export PERMITROOTLOGIN="no"
@@ -22,3 +22,6 @@ export NGX_VER="1.0.10"
 export MYSQL_PASSWORD="ThisIsSpartaXXX37"
 export PHP_MODS="php5-curl php5-gd php5-memcache php5-mysql php5-imagick imagemagick php-pear"
 export DEPS="build-essential m4 python-software-properties wget"
+
+echo $USER
+echo $PASSWORD
