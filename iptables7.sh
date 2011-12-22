@@ -1,6 +1,6 @@
 #!/bin/bash
 echo "iptables"
-./home/root/deployment/variables1.sh
+/root/deployment/variables1.sh &
 # Firewall configuration
 aptitude install -y iptables
 iptables-save > /etc/iptables.up.rules

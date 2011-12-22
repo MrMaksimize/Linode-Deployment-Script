@@ -1,5 +1,5 @@
 #!/bin/bash
-./home/root/deployment/variables1.sh
+/root/deployment/variables1.sh &
 echo '
 server {
             listen   80;
