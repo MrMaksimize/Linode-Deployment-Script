@@ -25,3 +25,4 @@ export DEPS="build-essential m4 python-software-properties wget"
 
 echo $USER
 echo $PASSWORD
+echo $PORT
