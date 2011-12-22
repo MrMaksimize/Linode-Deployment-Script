@@ -37,10 +37,7 @@ chown -R $USER:webmasters /home/$USER/public_html && chmod -R g+w /home/$USER/pu
 find /home/$USER/public_html -type d -exec chmod g+s {} \;
 #
 #inc_scriptWWWWelcomeNginx
-echo "<br/><br/><br/><p>Congratulations $USER, we're done and this server's purring.</p><p>Any queries, please, <a href=\"http://vpsbible.com/forums\" title=\"link to the vpsBible forums\" >drop by the forums</a>, say hi and ask away.</p><br/><p>And if you're really really happy with this work? Hmmn, would you tell the folks at your VPS host forum?</p><p>Or maybe Uncle Digg or Auntie Twitter?  Sure I'm cheeky.</p><br/><p>Don't forget to check back for more scripts, like the 2-minute WordPress installation, now testing.  Or <a href=\"http://vpsbible.com/forums/forum/suggestions-requests\" title=\"link to the Suggestions and Requests forum\" >make a request</a>, by all means.</p>
-<p>And one last thing .. you've got Nginx now, PHP and MySQL, but do you know how to maintain this stuff?</p><p>.. to backup, to proxy, to whatnot .. to really make the most of your VPS?</p>
-<p>Here's the <a href=\"http://vpsbible.com/vps-setup-guides/maintain-nginx-ubuntu-from-terminal-index\" title=\"link to the Nginx-Ubuntu Index of tutorials\" >Nginx-Ubuntu Admin Index</a>, enjoy.  And here's the <a href=\"http://feeds.feedburner.com/vpsbible\" title=\"here's vpsBible's RSS feed\">RSS feed</a> .. and the <a href=\"http://feedburner.google.com/fb/a/mailverify%3Furi%3Dvpsbible%26loc%3Den_US\" title=\"or grab a vpsBible feed by email\">feed by email</a>, why not.</p><br/><p>Cheerio and kind regards - I appreciate your support,</p><p>the_guv from vpsBible.com</p><br/>
-" >> /home/$USER/public_html/$DOMAIN/public/index.php
+echo "all done" >> /home/$USER/public_html/$DOMAIN/public/index.php
 #
 #inc_scriptLogrotateNginx
 # Rotate Domain Log Files
