@@ -34,7 +34,7 @@ mkdir -p /home/$USER/public_html/$DOMAIN/{backup,cgi-bin,log,private,public}
 addgroup webmasters
 usermod -G webmasters www-data
 chown -R $USER:webmasters /home/$USER/public_html && chmod -R g+w /home/$USER/public_html
-find /home/$USER/public_html -type d -exec chmod g+s {} \;
+find /home/$USER/public_html -type d -exec chmod g+s {} \; ##DON"T FORGET ABOUT ME
 #
 #inc_scriptWWWWelcomeNginx
 echo "all done" >> /home/$USER/public_html/$DOMAIN/public/index.php

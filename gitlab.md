@@ -228,3 +228,5 @@ http {
 
 
 sudo chmod +x /etc/init.d/nginx && sudo /usr/sbin/update-rc.d -f nginx defaults
+
+DO RESTART SSH
