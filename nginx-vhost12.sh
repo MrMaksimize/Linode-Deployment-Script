@@ -1,34 +1,9 @@
 echo "nginx-vhost"
-echo '
-server {
-            listen   80;
-            server_name  www.DOMAIN;
-            rewrite ^/(.*) http://DOMAIN/$1 permanent;
-       }
-server {
-            listen   80;
-            server_name DOMAIN;
-            access_log /home/USER/public_html/DOMAIN/log/access.log;
-            error_log /home/USER/public_html/DOMAIN/log/error.log;
-            location /  {
-                        root   /home/USER/public_html/DOMAIN/public/;
-                        index  index.php index.html;
-                        }
-            # pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000
-            location ~ \.php$
-                    {
-            fastcgi_pass 127.0.0.1:9000;
-            fastcgi_index index.php;
-            include /usr/local/nginx/conf/fastcgi_params;
-            fastcgi_param SCRIPT_FILENAME /home/USER/public_html/DOMAIN/public/$fastcgi_script_name;
-                        }
-       }
-' > /usr/local/nginx/sites-available/$DOMAIN
-sed -i "s/USER/$USER/g" /usr/local/nginx/sites-available/$DOMAIN
-sed -i "s/DOMAIN/$DOMAIN/g" /usr/local/nginx/sites-available/$DOMAIN
-ln -s /opt/nginx/sites-available/maxipad.mrmaksimize.com /opt/nginx/sites-enabled/maxipad.mrmaksimize.com
+cat /root/home/deployment/config_files/php_subdomain_vhost.txt > /opt/nginx/sites-available/$DOMAIN
+sed -i "s/USER/$USER/g" /opt/nginx/sites-available/$DOMAIN
+sed -i "s/DOMAIN/$DOMAIN/g" /opt/nginx/sites-available/$DOMAIN
+ln -s /opt/nginx/sites-available/$DOMAIN /opt/nginx/sites-enabled/$DOMAIN
 #
-#inc_scriptWWWDirPerms
 # Web Directory Structure
 mkdir -p /home/$USER/public_html/$DOMAIN/{backup,cgi-bin,log,private,public} #runme
 addgroup webmasters #runme

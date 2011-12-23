@@ -36,5 +36,5 @@ server  {
             		   }
            	passenger_enabled on;
 		}
-' >> /usr/local/nginx/sites-available/default
+' > /opt/nginx/sites-available/default
 ln -s /opt/nginx/sites-available/default /opt/nginx/sites-enabled/default
