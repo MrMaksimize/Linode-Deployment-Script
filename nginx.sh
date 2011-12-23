@@ -1,6 +1,6 @@
 echo "nginx compile and install"
 # Nginx to serve webs
-aptitude -y install libpcre3 libpcre3-dev libpcrecpp0 libssl-dev zlib1g-dev
+#aptitude -y install libpcre3 libpcre3-dev libpcrecpp0 libssl-dev zlib1g-dev
 cd /usr/local/src
 wget http://nginx.org/download/nginx-$NGX_VER.tar.gz && tar -zxvf nginx-$NGX_VER.tar.gz
 cd nginx-$NGX_VER
@@ -16,3 +16,4 @@ mkdir /opt/nginx/sites-available /opt/nginx/sites-enabled
 cat /root/home/deployment/config_files/default_vhost.txt > /opt/nginx/sites-available/default
 ln -s /opt/nginx/sites-available/default /opt/nginx/sites-enabled/default
 /etc/init.d/nginx start
+#todo - make this compatible both with rails and not

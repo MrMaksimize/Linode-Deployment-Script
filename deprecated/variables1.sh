@@ -1,10 +1,10 @@
-#!/bin/bash
 ##### VPS User Variables #####
 echo "variables export starting"
 export USER="MrMaksimize"
 export PASSWORD="Linux37"
-export GEEKLABUSER = "geeklab"
-export GEEKLABPASSWD = "Linux37"
+#export GEEKLABUSER = "geeklab"
+#export GEEKLABPASSWD = "Linux37"
+export GEEKLAB = "TRUE"
 export HOSTNAME="slinky.mrmaksimize.com"
 export DOMAIN="geeklab.mrmaksimize.com"
 export SHORTDOMAIN="geeklab.mrmaksimize"
@@ -23,10 +23,13 @@ export PUBLIC_KEY="ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAu3ETxJOaGuQo2QGSZdHam1X9/
 export NGX_VER="1.0.10"
 export MYSQL_PASSWORD="Linux37"
 export PHP_MODS="php5-curl php5-gd php5-memcache php5-mysql php5-imagick imagemagick php-pear"
-export DEPS="build-essential m4 python-software-properties wget"
+export DEPS="git git-core build-essential m4 python-software-properties wget iptables libpcre3 libpcre3-dev libpcrecpp0 libssl-dev zlib1g-dev php5-cli php5-common php5-suhosin php5-fpm php5-cgi makepasswd"
+#export GITLABDEPS = "git-core wget curl gcc checkinstall libxml2-dev libxslt-dev sqlite3 libsqlite3-dev libcurl4-openssl-dev libc6-dev libssl-dev libmysql++-dev make build-essential zlib1g-dev"
 
 echo $USER
 echo $PASSWORD
+#echo $GEEKLABUSER
+#echo $GEEKLABPASSWD
 echo $HOSTNAME
 echo $DOMAIN
 echo $SHORTDOMAIN
@@ -45,15 +48,4 @@ echo $PUBLIC_KEY
 echo $MYSQL_PASSWORD
 echo $PHP_MODS
 echo $DEPS
-
-/root/deployment/updates2.sh &&
-/root/deployment/users3.sh &&
-/root/deployment/alias4.sh &&
-/root/deployment/authkeys5.sh && 
-/root/deployment/ssh6.sh &&
-/root/deployment/iptables7.sh && 
-/root/deployment/postfix8.sh &&
-/root/deployment/mysql9.sh &&
-/root/deployment/php-fpm10.sh &&
-/root/deployment/nginx11.sh &&
-/root/deployment/nginx-vhost12.sh 
+#echo $GITLABDEPS

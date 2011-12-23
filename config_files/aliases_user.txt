@@ -26,3 +26,6 @@ export PS1="\[\e[31;1m\]\u\[\e[0m\]\[\e[32m\]@\h\[\e[32m\]\w \[\e[33m\]\$ \[\e[0
 alias n2r="sudo /etc/init.d/nginx stop && sleep 2 && sudo /etc/init.d/nginx start"
 #goto virtual hosts
 alias nginxsa="cd /opt/nginx/sites-available"
+#alias n2r="sudo /etc/init.d/nginx stop && sleep 2 && sudo /etc/init.d/nginx start"
+#goto virtual hosts
+#alias nginxsa="cd /opt/nginx/sites-available"
