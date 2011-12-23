@@ -2,7 +2,9 @@
 ##### VPS User Variables #####
 echo "variables export starting"
 export USER="MrMaksimize"
-export PASSWORD="LInux37"
+export PASSWORD="Linux37"
+export GEEKLABUSER = "geeklab"
+export GEEKLABPASSWD = "Linux37"
 export HOSTNAME="slinky.mrmaksimize.com"
 export DOMAIN="geeklab.mrmaksimize.com"
 export SHORTDOMAIN="geeklab.mrmaksimize"
