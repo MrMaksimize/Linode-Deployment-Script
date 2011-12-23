@@ -26,14 +26,14 @@ server {
 ' > /usr/local/nginx/sites-available/$DOMAIN
 sed -i "s/USER/$USER/g" /usr/local/nginx/sites-available/$DOMAIN
 sed -i "s/DOMAIN/$DOMAIN/g" /usr/local/nginx/sites-available/$DOMAIN
-ln -s /usr/local/nginx/sites-available/$DOMAIN /usr/local/nginx/sites-enabled/$DOMAIN
+ln -s /opt/nginx/sites-available/maxipad.mrmaksimize.com /opt/nginx/sites-enabled/maxipad.mrmaksimize.com
 #
 #inc_scriptWWWDirPerms
 # Web Directory Structure
-mkdir -p /home/$USER/public_html/$DOMAIN/{backup,cgi-bin,log,private,public}
-addgroup webmasters
-usermod -G webmasters www-data
-chown -R $USER:webmasters /home/$USER/public_html && chmod -R g+w /home/$USER/public_html
+mkdir -p /home/$USER/public_html/$DOMAIN/{backup,cgi-bin,log,private,public} #runme
+addgroup webmasters #runme
+usermod -G webmasters www-data #runme
+chown -R MrMaksimize:webmasters /home/MrMaksimize/public_html && chmod -R g+w /home/MrMaksimize/public_html
 find /home/$USER/public_html -type d -exec chmod g+s {} \; ##DON"T FORGET ABOUT ME
 #
 #inc_scriptWWWWelcomeNginx

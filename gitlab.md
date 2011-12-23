@@ -230,3 +230,9 @@ http {
 sudo chmod +x /etc/init.d/nginx && sudo /usr/sbin/update-rc.d -f nginx defaults
 
 DO RESTART SSH
+
+
+
+copy current configs
+nginx can run as www-data because the app is the one that issues git commands through the git user
+make sure to run the perm commands in nginx-vhost 12
