@@ -5,6 +5,9 @@
 ###     LEMP Stack Ubuntu 32 (v2): PHP-FPM     ###
 ####################################################################
 #
+#COPYRIGHT Olly Connelly, vpsBible.com 2010.  Permission to use this script is given solely to vpsBible.com subscribers and the_guv's granny.
+#DISCLAIMER: USE OF THIS SCRIPT IS ENTIRELY AT YOUR OWN RISK.  No one accepts any liability whatsoever, anywhere, howsoever and wherever. (Ever!)
+#
 ####################################################################
 ####################################################################
 ####################################################################
@@ -22,10 +25,10 @@ export PASSWORD="NewOrderX37"
 #inc_scriptVarsDomain
 ##### Sites & Email #####
 #
-export HOSTNAME="slinky.mrmaksimize.com"
-export DOMAIN="geeklab.mrmaksimize.com"
-export SHORTDOMAIN="geeklab.mrmaksimize"
-export POSTFIX_FIX="\$geeklab.mrmaksimize"
+export HOSTNAME="mrm.mrmaksimize.com"
+export DOMAIN="mrmaksimize.com"
+export SHORTDOMAIN="mrmaksimize"
+export POSTFIX_FIX="\$mrmaksimize"
 #
 #inc_scriptVarsLogrotate
 ##### Logrotate #####

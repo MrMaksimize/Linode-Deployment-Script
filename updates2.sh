@@ -16,6 +16,6 @@ deb-src http://security.ubuntu.com/ubuntu oneiric-security universe
 ' > /etc/apt/sources.list
 aptitude update && aptitude -y safe-upgrade
 aptitude install -y $DEPS
-add-apt-repository ppa:brianmercer/php && aptitude update
+add-apt-repository -y ppa:brianmercer/php && aptitude update
 locale-gen $LOCALE.$CHARSET
 /usr/sbin/update-locale LANG=$LOCALE.$CHARSET

@@ -19,8 +19,8 @@ echo '
 # Short-Description: starts the nginx web server
 # Description:       starts nginx using start-stop-daemon
 ### END INIT INFO
-PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
-DAEMON=/usr/local/sbin/nginx
+PATH=/opt/nginx/sbin:/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
+DAEMON=/opt/nginx/sbin
 NAME=nginx
 DESC=nginx
 test -x $DAEMON || exit 0
@@ -32,28 +32,28 @@ set -e
 case "$1" in
   start)
         echo -n "Starting $DESC: "
-        start-stop-daemon --start --quiet --pidfile /usr/local/nginx/logs/$NAME.pid \
+        start-stop-daemon --start --quiet --pidfile /opt/nginx/logs/$NAME.pid \
                 --exec $DAEMON -- $DAEMON_OPTS
         echo "$NAME."
         ;;
   stop)
         echo -n "Stopping $DESC: "
-        start-stop-daemon --stop --quiet --pidfile /usr/local/nginx/logs/$NAME.pid \
+        start-stop-daemon --stop --quiet --pidfile /opt/nginx/logs/$NAME.pid \
                 --exec $DAEMON
         echo "$NAME."
         ;;
   restart|force-reload)
         echo -n "Restarting $DESC: "
         start-stop-daemon --stop --quiet --pidfile \
-                /usr/local/nginx/logs/$NAME.pid --exec $DAEMON
+                /opt/nginx/logs/$NAME.pid --exec $DAEMON
         sleep 1
         start-stop-daemon --start --quiet --pidfile \
-                /usr/local/nginx/logs/$NAME.pid --exec $DAEMON -- $DAEMON_OPTS
+                /opt/nginx/nginx/logs/$NAME.pid --exec $DAEMON -- $DAEMON_OPTS
         echo "$NAME."
         ;;
   reload)
       echo -n "Reloading $DESC configuration: "
-      start-stop-daemon --stop --signal HUP --quiet --pidfile /usr/local/nginx/logs/$NAME.pid \
+      start-stop-daemon --stop --signal HUP --quiet --pidfile /opt/nginx/logs/$NAME.pid \
           --exec $DAEMON
       echo "$NAME."
       ;;
@@ -105,3 +105,5 @@ server  {
 ln -s /usr/local/nginx/sites-available/default /usr/local/nginx/sites-enabled/default
 /etc/init.d/nginx start
 #
+
+# sh ./configure --prefix='/opt/nginx' --with-http_ssl_module --with-cc-opt='-Wno-error' --add-module='/usr/local/lib/ruby/gems/1.9.1/gems/passenger-3.0.11/ext/nginx' --sbin-path=/usr/local/sbin

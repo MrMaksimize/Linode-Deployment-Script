@@ -13,4 +13,4 @@ echo "$USER    ALL=(ALL) ALL" >> /etc/sudoers.tmp
 chmod 0440 /etc/sudoers.tmp
 mv /etc/sudoers.tmp /etc/sudoers
 rm pass.txt
-#
+###issue here with adding to sudoers
