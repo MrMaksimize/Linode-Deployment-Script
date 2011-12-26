@@ -3,21 +3,19 @@ echo "nginx compile and install passenger"
 #aptitude -y install libpcre3 libpcre3-dev libpcrecpp0 libssl-dev zlib1g-dev
 #gem install passenger
 #passenger-install-nginx-module
-echo $DEPLOYMENT_PATH
-cat $DEPLOYMENT_PATH/config_files/nginx_passenger_init_d.txt > /etc/init.d/nginx
-chmod +x /etc/init.d/nginx && /usr/sbin/update-rc.d -f nginx defaults
-mv /opt/nginx/conf/nginx.conf /opt/nginx/conf/nginx.conf.bak
-cat $DEPLOYMENT_PATH/config_files/nginx_conf_passenger.txt > /opt/nginx/conf/nginx.conf
-mkdir /opt/nginx/sites-available /opt/nginx/sites-enabled
-cat $DEPLOYMENT_PATH/config_files/default_vhost_passenger.txt > /opt/nginx/sites-available/default
-ln -s /opt/nginx/sites-available/default /opt/nginx/sites-enabled/default
+sudo cat /home/$USER/deployment/config_files/nginx_passenger_init_d.txt > /etc/init.d/nginx
+sudo chmod +x /etc/init.d/nginx && /usr/sbin/update-rc.d -f nginx defaults
+sudo mv /opt/nginx/conf/nginx.conf /opt/nginx/conf/nginx.conf.bak
+sudo cat /home/$USER/deployment/config_files/nginx_conf_passenger.txt > /opt/nginx/conf/nginx.conf
+sudo mkdir /opt/nginx/sites-available /opt/nginx/sites-enabled
+sudo cat /home/$USER/deployment/config_files/default_vhost_passenger.txt > /opt/nginx/sites-available/default
+sudo ln -s /opt/nginx/sites-available/default /opt/nginx/sites-enabled/default
 #webdir structure
-echo $USER
 mkdir /home/$USER/public_html
-addgroup webmasters 
-usermod -G webmasters www-data 
-chown -R $USER:webmasters /home/$USER/public_html && chmod -R g+w /home/$USER/public_html
-find /home/$USER/public_html -type d -exec chmod g+s {} \;
+sudo addgroup webmasters 
+sudo usermod -G webmasters www-data 
+sudo chown -R $USER:webmasters /home/$USER/public_html && chmod -R g+w /home/$USER/public_html
+sudo find /home/$USER/public_html -type d -exec chmod g+s {} \;
 
 sudo /etc/init.d/nginx start
 sudo service ssh restart
