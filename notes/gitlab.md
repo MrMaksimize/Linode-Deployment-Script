@@ -37,7 +37,7 @@ reinstall nginx as passenger module :(
 remove nginx
 
 
-apt-get install libpcre3 libpcre3-dev
+xx apt-get install libpcre3 libpcre3-dev
 
 nginx init.d
 
@@ -49,7 +49,7 @@ sudo chmod +x /etc/init.d/nginx && sudo /usr/sbin/update-rc.d -f nginx defaults
 DO RESTART SSH
 
 
-
+make sure to restart ssh, that gitolite-admin exists in geeklab home directory and can push and pull, 
 copy current configs
 nginx can run as www-data because the app is the one that issues git commands through the git user
 make sure to run the perm commands in nginx-vhost 12

@@ -6,7 +6,7 @@ touch pass.txt
 chmod 600 pass.txt
 echo $2 > pass.txt
 ph=$(makepasswd --clearfrom=pass.txt --crypt-md5 |awk '{print $2}')
-usermod -p $ph $USER
+usermod -p $ph $1
 echo "adding changing SUDOERS and cleanup"
 cp /etc/sudoers /etc/sudoers.tmp
 chmod 0640 /etc/sudoers.tmp

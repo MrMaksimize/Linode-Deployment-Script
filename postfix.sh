@@ -4,6 +4,7 @@ echo "start postfix"
 #rm /etc/hosts
 echo "$HOSTNAME" > /etc/hostname
 cat /root/deployment/config_files/etc_hosts.txt > /etc/hosts
+sed -i "s/HOSTNAME_REP/$HOSTNAME/g" /etc/hosts
 echo "postfix postfix/main_mailer_type select Internet Site" | debconf-set-selections
 echo "postfix postfix/mailname string $HOSTNAME" | debconf-set-selections
 echo "postfix postfix/destinations string localhost.localdomain, localhost" | debconf-set-selections

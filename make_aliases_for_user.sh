@@ -7,7 +7,7 @@ if [$1 == "root"] then
 	source /root/.bashrc
 else
 	echo "making regular aliases for $1"
-	cat /root/deployment/config_files/aliases_user.txt >> /home/$USER/.bashrc
-	sed -i "s/USERNAME/$USER/g" /home/$USER/.bashrc
-	source /home/$USER/.bashrc
+	cat /root/deployment/config_files/aliases_user.txt >> /home/$1/.bashrc
+	sed -i "s/USERNAME/$1/g" /home/$1/.bashrc
+	source /home/$1/.bashrc
 fi
