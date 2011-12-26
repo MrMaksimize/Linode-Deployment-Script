@@ -11,5 +11,5 @@ add-apt-repository -y ppa:brianmercer/php && aptitude update
 locale-gen $LOCALE.$CHARSET
 /usr/sbin/update-locale LANG=$LOCALE.$CHARSET
 if [ "$GITLAB" == "TRUE" ]; then
-	apt-get install -y $GITLABDEPS
+	aptitude install -y $GITLABDEPS
 fi
