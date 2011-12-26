@@ -10,7 +10,7 @@ sudo aptitude install git-core postfix -y;
 
 
 git config --global user.email "geek@geeklab.mrmaksimize.com"; git config --global user.name "GeekLab"; ssh-keygen -t rsa
-git clone https://MrMaksimize@github.com/MrMaksimize/gitlabhq_install.git
+git clone git://github.com/MrMaksimize/gitlabhq_install.git
 
 INSTEAD OF gitlabhq_install/ubuntu_packages.sh
 sudo apt-get install git-core wget curl gcc checkinstall libxml2-dev libxslt-dev sqlite3 libsqlite3-dev libcurl4-openssl-dev libc6-dev libssl-dev libmysql++-dev make build-essential zlib1g-dev

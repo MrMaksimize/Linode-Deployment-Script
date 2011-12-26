@@ -1,16 +1,16 @@
 #takes two variablles: user and domain and type
-echo "nginx-vhost $USER $DOMAIN $DOMAINTYPE $NGINX_PATH, $SHORTDOMAIN, $LOG_ROTATE, $LOG_FREQUENCY"
-echo "nginx-vhost $1 $2 $3 $4 $5 $6 $7"
-if [ $3 == "DOMAIN" ]; then
+echo "nginx-vhost $USER $DOMAIN $DOMAINTYPE $NGINX_PATH, $SHORTDOMAIN, $LOG_ROTATE, $LOG_FREQUENCY $DEPLOYMENT_PATH"
+echo "nginx-vhost $1 $2 $3 $4 $5 $6 $7 $8"
+if [ "$3" == "DOMAIN" ]; then
 	echo "creating domain"
-	cat /root/deployment/config_files/php_domain_vhost.txt > $4/sites-available/$2
+	sudo cat $8/config_files/php_domain_vhost.txt > $4/sites-available/$2
 else
 	echo "creating subdomain"
-	cat /root/deployment/config_files/php_subdomain_vhost.txt > $4/sites-available/$2
+	sudo cat $8/config_files/php_subdomain_vhost.txt > $4/sites-available/$2
 fi
-sed -i "s/USER/$1/g" $4/sites-available/$2
-sed -i "s/DOMAIN/$2/g" $4/sites-available/$2
-ln -s $4/sites-available/$2 $4/sites-enabled/$2
+sudo sed -i "s/USER/$1/g" $4/sites-available/$2
+sudo sed -i "s/DOMAIN/$2/g" $4/sites-available/$2
+sudo ln -s $4/sites-available/$2 $4/sites-enabled/$2
 #
 # Web Directory Structure
 mkdir -p /home/$1/public_html/$2/{backup,cgi-bin,log,private,public}
@@ -31,8 +31,8 @@ sudo echo "
         endscript
 }
 " > /etc/logrotate.d/$5
-/etc/init.d/nginx stop
-/etc/init.d/nginx start
-/etc/init.d/php5-fpm stop
-/etc/init.d/php5-fpm start
+sudo /etc/init.d/nginx stop
+sudo /etc/init.d/nginx start
+sudo /etc/init.d/php5-fpm stop
+sudo /etc/init.d/php5-fpm start
 sudo service ssh restart
