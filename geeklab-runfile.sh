@@ -59,7 +59,7 @@ sed -i "s/DOMAIN/$GITLABDOMAIN/g" /home/$USER/gitlabhq/config/gitlab.yml
 sed -i "s/PORT/$PORT/g" /home/$USER/gitlabhq/config/gitlab.yml
 sudo service ssh restart
 ##ready for nginx
-/home/$USER/nginx_passenger.sh &&
+/home/$USER/deployment/nginx_passenger.sh &&
 	read -p "nginx done" &&
 	/home/$USER/deployment/nginx-vhost.sh $USER $GITLABDOMAIN $GITLABDOMAINTYPE $NGINX_PATH $GITLABSHORTDOMAIN $LOG_ROTATE $LOG_FREQUENCY
 fi
