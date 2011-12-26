@@ -88,5 +88,5 @@ if [ $GITLAB ]; then
 else
     /root/deployment/nginx_no_passenger.sh &&
 	read -p "nginx done" &&
-	/root/deployment/nginx-vhost.sh $USER $DOMAIN $DOMAINTYPE $NGINX_PATH $SHORTDOMAIN
+	/root/deployment/nginx-vhost.sh $USER $DOMAIN $DOMAINTYPE $NGINX_PATH $SHORTDOMAIN $LOG_ROTATE $LOG_FREQUENCY
 fi
