@@ -8,7 +8,7 @@ sed -i "s/HOSTNAME_REP/$HOSTNAME/g" /etc/hosts
 echo "postfix postfix/main_mailer_type select Internet Site" | debconf-set-selections
 echo "postfix postfix/mailname string $HOSTNAME" | debconf-set-selections
 echo "postfix postfix/destinations string localhost.localdomain, localhost" | debconf-set-selections
-aptitude -y install postfix telnet mailx
+aptitude -y install postfix telnet mailx mailutils bsd-mailx 
 rm /etc/aliases
 echo "root: $USER" >> /etc/aliases
 newaliases
