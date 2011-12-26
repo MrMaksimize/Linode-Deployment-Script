@@ -11,4 +11,5 @@ server  {
             		   {
             			root   html;
             		   }
+           	passenger_enabled on;
 		}

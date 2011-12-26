@@ -1,6 +1,12 @@
-#takes two variablles: user and domain
-echo "nginx-vhost"
-cat /root/home/deployment/config_files/php_subdomain_vhost.txt > /opt/nginx/sites-available/$2
+#takes two variablles: user and domain and type
+echo "nginx-vhost $USER $DOMAIN DOMAINTYPE"
+if [$DOMAINTYPE == "DOMAIN"] then
+	echo "creating domain"
+	cat /root/home/deployment/config_files/php_domain_vhost.txt > /opt/nginx/sites-available/$2
+else
+	echo "creating subdomain"
+	cat /root/home/deployment/config_files/php_subdomain_vhost.txt > /opt/nginx/sites-available/$2
+
 sed -i "s/USER/$1/g" /opt/nginx/sites-available/$2
 sed -i "s/DOMAIN/$2/g" /opt/nginx/sites-available/$2
 ln -s /opt/nginx/sites-available/$2 /opt/nginx/sites-enabled/$2
@@ -8,10 +14,8 @@ ln -s /opt/nginx/sites-available/$2 /opt/nginx/sites-enabled/$2
 # Web Directory Structure
 mkdir -p /home/$1/public_html/$2/{backup,cgi-bin,log,private,public} #runme
 #
-#inc_scriptWWWWelcomeNginx
 echo "all done" >> /home/$1/public_html/$2/public/index.php
 #
-#inc_scriptLogrotateNginx
 # Rotate Domain Log Files
 sudo echo "
 /home/$1/public_html/$2/log/*log
@@ -26,12 +30,9 @@ sudo echo "
         endscript
 }
 " >> /etc/logrotate.d/$SHORTDOMAIN
-#
-#inc_scriptNginxReload
 /etc/init.d/nginx stop
 /etc/init.d/nginx start
-#
-#inc_scriptPHP-FPMreload
 /etc/init.d/php5-fpm stop
 /etc/init.d/php5-fpm start
-#
+
+sudo service ssh restart

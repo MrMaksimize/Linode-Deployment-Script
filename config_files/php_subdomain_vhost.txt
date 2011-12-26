@@ -1,10 +1,10 @@
 server {
             listen   80;
-            server_name maxipad.mrmaksimize.com;
-            access_log /home/MrMaksimize/public_html/maxipad.mrmaksimize.com/log/access.log;
-            error_log /home/MrMaksimize/public_html/maxipad.mrmaksimize.com/log/error.log;
+            server_name $DOMAIN;
+            access_log /home/$USER/public_html/$DOMAIN/log/access.log;
+            error_log /home/$USER/public_html/$DOMAIN/log/error.log;
             location /  {
-                        root   /home/MrMaksimize/public_html/maxipad.mrmaksimize.com/public/;
+                        root   /home/$USER/public_html/$DOMAIN/public/;
                         index  index.php index.html;
                         }
             # pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000
@@ -13,6 +13,6 @@ server {
             fastcgi_pass 127.0.0.1:9000;
             fastcgi_index index.php;
             include /opt/nginx/conf/fastcgi_params;
-            fastcgi_param SCRIPT_FILENAME /home/MrMaksimize/public_html/maxipad.mrmaksimize.com/public/$fastcgi_script_name;
+            fastcgi_param SCRIPT_FILENAME /home/$USER/public_html/$DOMAIN/public/$fastcgi_script_name;
                         }
        }

@@ -6,6 +6,7 @@ export PASSWORD="Linux37"
 #export GITLAB = "TRUE"
 export HOSTNAME="mrm.mrmaksimize.com"
 export DOMAIN="mrmaksimize.com"
+export DOMAINTYPE = "DOMAIN"
 #export GITLABDOMAIN = "git.mrmaksimize.com"
 export SHORTDOMAIN="mrmaksimize`"
 export POSTFIX_FIX="\$mrmaksimize"
@@ -83,7 +84,8 @@ read -p "mysql ready.  Press any key to continue" &&
 read -p "php-fpm ready.  Press any key to continue" &&
 if [$GITLAB] then
 	exit
+else
+    /root/deployment/nginx.sh &&
+	read -p "nginx done" &&
+	/root/deployment/nginx-vhost.sh $USER $DOMAIN $DOMAINTYPE
 fi
-/root/deployment/nginx.sh &&
-read -p "nginx done" &&
-/root/deployment/nginx-vhost.sh $USER $DOMAIN
