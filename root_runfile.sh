@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -x
 ##### VPS User Variables #####
 echo "variables export starting"
 export USER="MrMaksimize"
