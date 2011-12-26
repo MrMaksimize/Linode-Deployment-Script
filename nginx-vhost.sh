@@ -1,6 +1,6 @@
 #takes two variablles: user and domain and type
 echo "nginx-vhost $USER $DOMAIN DOMAINTYPE"
-if [$DOMAINTYPE == "DOMAIN"] then
+if [$DOMAINTYPE == "DOMAIN"]; then
 	echo "creating domain"
 	cat /root/home/deployment/config_files/php_domain_vhost.txt > /opt/nginx/sites-available/$2
 else

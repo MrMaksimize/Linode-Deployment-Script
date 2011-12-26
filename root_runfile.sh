@@ -71,7 +71,7 @@ read -p "aliases for root made.  Press any key to continue" &&
 read -p "authkey for $USER made.  Press any key to continue" &&
 /root/deployment/ssh.sh &&
 read -p "ssh finished up.  Press any key to continue" &&
-if [$GITLAB] then
+if [$GITLAB]; then
 	echo "Don't forget to add the GITLAB user to the allowDNS"
 fi
 /root/deployment/iptables.sh && 
@@ -82,7 +82,7 @@ read -p "postfix ready.  Press any key to continue" &&
 read -p "mysql ready.  Press any key to continue" &&
 /root/deployment/php-fpm.sh &&
 read -p "php-fpm ready.  Press any key to continue" &&
-if [$GITLAB] then
+if [$GITLAB]; then
 	exit
 else
     /root/deployment/nginx.sh &&
