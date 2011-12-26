@@ -1,6 +1,6 @@
 #takes two variablles: user and domain and type
-echo "nginx-vhost $USER $DOMAIN $DOMAINTYPE $NGINX_PATH"
-echo "nginx-vhost $1 $2 $3 $4"
+echo "nginx-vhost $USER $DOMAIN $DOMAINTYPE $NGINX_PATH, $SHORTDOMAIN"
+echo "nginx-vhost $1 $2 $3 $4 $5"
 if [ $DOMAINTYPE == "DOMAIN" ]; then
 	echo "creating domain"
 	cat /root/deployment/config_files/php_domain_vhost.txt > $4/sites-available/$2
@@ -30,7 +30,7 @@ sudo echo "
                 /etc/init.d/nginx restart
         endscript
 }
-" >> /etc/logrotate.d/$SHORTDOMAIN
+" >> /etc/logrotate.d/$5
 /etc/init.d/nginx stop
 /etc/init.d/nginx start
 /etc/init.d/php5-fpm stop
