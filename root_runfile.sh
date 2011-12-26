@@ -26,14 +26,14 @@ export MYSQL_PASSWORD="Linux37"
 export PHP_MODS="php5-curl php5-gd php5-memcache php5-mysql php5-imagick imagemagick php-pear"
 export DEPS="git git-core build-essential m4 python-software-properties wget iptables libpcre3 libpcre3-dev libpcrecpp0 libssl-dev zlib1g-dev php5-cli php5-common php5-suhosin php5-fpm php5-cgi makepasswd"
 #git and gitlab
-export GITLAB = "TRUE"
-export GITLABDOMAIN = "git.mrmaksimize.com"
-export GITLABDOMAINTYPE = "SUBDOMAIN"
+export GITLAB="TRUE"
+export GITLABDOMAIN="git.mrmaksimize.com"
+export GITLABDOMAINTYPE="SUBDOMAIN"
 export GITLABSHORTDOMAIN="git.mrmaksimize"
-export GITLABDEPS = "git-core wget curl gcc checkinstall libxml2-dev libxslt-dev sqlite3 libsqlite3-dev libcurl4-openssl-dev libc6-dev libssl-dev libmysql++-dev make build-essential zlib1g-dev"
-export GITLAB_INSTALL_URL = "https://MrMaksimize@github.com/MrMaksimize/gitlabhq_install.git"
-export GIT_USER_EMAIL = "geek@geeklab.mrmaksimize.com"
-export GIT_USER_NAME = "GeekLab"
+export GITLABDEPS="git-core wget curl gcc checkinstall libxml2-dev libxslt-dev sqlite3 libsqlite3-dev libcurl4-openssl-dev libc6-dev libssl-dev libmysql++-dev make build-essential zlib1g-dev"
+export GITLAB_INSTALL_URL="https://MrMaksimize@github.com/MrMaksimize/gitlabhq_install.git"
+export GIT_USER_EMAIL="geek@geeklab.mrmaksimize.com"
+export GIT_USER_NAME="GeekLab"
 
 ##this should set up everything except for nginx
 /root/deployment/updates.sh &&
@@ -64,7 +64,7 @@ read -p "postfix ready.  Press any key to continue" &&
 read -p "mysql ready.  Press any key to continue" &&
 /root/deployment/php-fpm.sh &&
 read -p "php-fpm ready.  Press any key to continue" &&
-if [ $GITLAB ]; then
+if [ "$GITLAB" == "TRUE" ]; then
 	echo "NO Nginx Yet.  Run geeklab-runfile from $USER"
 	exit
 else
