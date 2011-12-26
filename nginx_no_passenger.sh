@@ -11,11 +11,12 @@ kill `cat /usr/local/nginx/logs/nginx.pid`
 cat /root/deployment/config_files/nginx_no_passenger_init_d.txt > /etc/init.d/nginx
 chmod +x /etc/init.d/nginx && /usr/sbin/update-rc.d -f nginx defaults
 mv /usr/local/nginx/conf/nginx.conf /usr/local/nginx/conf/nginx.conf.bak
-cat /root/deployment/config_files/nginx_conf.txt > /usr/local/nginx/conf/nginx.conf
+cat /root/deployment/config_files/nginx_conf_no_passenger.txt > /usr/local/nginx/conf/nginx.conf
 mkdir /usr/local/nginx/sites-available /usr/local/nginx/sites-enabled
-cat /root/deployment/config_files/default_vhost.txt > /usr/local/nginx/sites-available/default
+cat /root/deployment/config_files/default_vhost_no_passenger.txt > /usr/local/nginx/sites-available/default
 ln -s /usr/local/nginx/sites-available/default /usr/local/nginx/sites-enabled/default
 #webdir structure
+mkdir /home/$USER/public_html
 addgroup webmasters 
 usermod -G webmasters www-data 
 chown -R $USER:webmasters /home/$USER/public_html && chmod -R g+w /home/$USER/public_html
