@@ -1,5 +1,5 @@
 #takes two variablles: user and domain and type
-echo "nginx-vhost $USER $DOMAIN $DOMAINTYPE $NGINX_PATH, $SHORTDOMAIN, $FCGI_PARAMS
+echo "nginx-vhost $USER $DOMAIN $DOMAINTYPE $NGINX_PATH, $SHORTDOMAIN, $FCGI_PARAMS"
 echo "nginx-vhost $1 $2 $3 $4 $5 $6"
 if [ "$3" == "DOMAIN" ]; then
 	echo "creating domain"
