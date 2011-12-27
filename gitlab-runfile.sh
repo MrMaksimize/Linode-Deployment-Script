@@ -45,4 +45,3 @@ cd /home/$USER
 git clone ssh://git@localhost:$PORT/gitolite-admin
 sudo service ssh restart
 sudo service nginx restart
-n2r
