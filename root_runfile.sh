@@ -23,7 +23,7 @@ export DEPS="git git-core build-essential m4 python-software-properties wget ipt
 export NGINX_GZ="http://nginx.org/download/nginx-1.0.11.tar.gz"
 export NGINX_VER="1.0.11"
 #git and gitlab
-export GITLAB="FALSE"
+export GITLAB="TRUE"
 export GITLABDOMAIN="git.mrmaksimize.com"
 export GITLABSHORTDOMAIN="git.mrmaksimize"
 export GIT_USER_EMAIL="geek@geeklab.mrmaksimize.com"
