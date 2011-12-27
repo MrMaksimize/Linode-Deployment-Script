@@ -16,6 +16,6 @@ sudo addgroup webmasters
 sudo usermod -G webmasters www-data 
 sudo chown -R $USER:webmasters /home/$USER/public_html && chmod -R g+w /home/$USER/public_html
 sudo find /home/$USER/public_html -type d -exec chmod g+s {} \;
-sudo /etc/init.d/nginx start
+sudo /etc/init.d/nginx restart
 sudo service ssh restart
 ##there are major perm issues here.  this should be run as root

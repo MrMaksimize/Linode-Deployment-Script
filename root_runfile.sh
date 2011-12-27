@@ -65,7 +65,7 @@ read -p "mysql ready.  Press any key to continue" &&
 /root/deployment/php-fpm.sh &&
 read -p "php-fpm ready.  Press any key to continue" &&
 if [ "$GITLAB" == "TRUE" ]; then
-	sudo -u $USER git clone git://github.com/MrMaksimize/gitlabhq_install.git /home/$USER/gitlabhq_install
+	git clone git://github.com/MrMaksimize/gitlabhq_install.git /home/$USER/gitlabhq_install
 	cd /home/$USER
 	/home/$USER/gitlabhq_install/ubuntu_ruby.sh
 	/root/deployment/nginx_passenger.sh &&

@@ -3,10 +3,10 @@ echo "nginx-vhost $USER $DOMAIN $DOMAINTYPE $NGINX_PATH, $SHORTDOMAIN"
 echo "nginx-vhost $1 $2 $3 $4 $5"
 if [ "$3" == "DOMAIN" ]; then
 	echo "creating domain"
-	sudo cat $8/config_files/php_domain_vhost.txt > $4/sites-available/$2
+	sudo cat /root/config_files/php_domain_vhost.txt > $4/sites-available/$2
 else
 	echo "creating subdomain"
-	sudo cat /home/root/deployment/config_files/php_subdomain_vhost.txt > $4/sites-available/$2
+	sudo cat /root/deployment/config_files/php_subdomain_vhost.txt > $4/sites-available/$2
 fi
 sudo sed -i "s/USER/$1/g" $4/sites-available/$2
 sudo sed -i "s/DOMAIN/$2/g" $4/sites-available/$2
