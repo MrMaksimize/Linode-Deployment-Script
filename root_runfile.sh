@@ -49,7 +49,7 @@ read -p "aliases for $USER made.  Press any key to continue" &&
 #fi
 /root/deployment/make_aliases_for_user.sh root &&
 read -p "aliases for root made.  Press any key to continue" &&
-/root/deployment/add_authkey_for_user.sh $USER $PUBLIC_KEY && 
+/root/deployment/add_authkey_for_user.sh $USER "$PUBLIC_KEY" && 
 read -p "authkey for $USER made.  Press any key to continue" &&
 /root/deployment/ssh.sh &&
 read -p "ssh finished up.  Press any key to continue" &&
