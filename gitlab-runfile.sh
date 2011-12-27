@@ -7,19 +7,12 @@ export PORT="3737"
 #git and gitlab
 export GITLAB="TRUE"
 export GITLABDOMAIN="git.mrmaksimize.com"
-export GITLABDOMAINTYPE="SUBDOMAIN"
-export GITLABSHORTDOMAIN="git.mrmaksimize"
-export GITLABDEPS="libyaml-dev git-core wget curl gcc libcre libcre3-dev openssh-server checkinstall libxml2-dev libxslt-dev sqlite3 libsqlite3-dev libcurl4-openssl-dev libc6-dev libssl-dev libmysql++-dev make build-essential zlib1g-dev"
-export GITLAB_INSTALL_URL="git://github.com/MrMaksimize/gitlabhq_install.git"
 export GIT_USER_EMAIL="geek@geeklab.mrmaksimize.com"
 export GIT_USER_NAME="GeekLab"
 
 git config --global user.email $GIT_USER_EMAIL 
 git config --global user.name $GIT_USER_NAME 
 ssh-keygen -t rsa
-#git clone https://MrMaksimize@github.com/MrMaksimize/gitlabhq_install.git /home/$USER/gitlabhq_install
-#/home/$USER/gitlabhq_install/ubuntu_ruby.sh
-#sudo apt-get install openssh-server
 sudo adduser --system --shell /bin/sh --gecos 'git version control' --group --disabled-password --home /home/git git
 sudo usermod -a -G git `eval whoami`
 sudo cp /home/$USER/.ssh/id_rsa.pub /home/git/rails.pub
