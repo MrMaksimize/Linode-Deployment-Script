@@ -1,6 +1,6 @@
 #takes two variablles: user and domain and type
-echo "nginx-vhost $USER $DOMAIN $DOMAINTYPE $NGINX_PATH, $SHORTDOMAIN"
-echo "nginx-vhost $1 $2 $3 $4 $5"
+echo "nginx-vhost $USER $DOMAIN $DOMAINTYPE $NGINX_PATH, $SHORTDOMAIN, $FCGI_PARAMS
+echo "nginx-vhost $1 $2 $3 $4 $5 $6"
 if [ "$3" == "DOMAIN" ]; then
 	echo "creating domain"
 	sudo cat /root/deployment/config_files/php_domain_vhost.txt > $4/sites-available/$2
@@ -16,6 +16,7 @@ else
 fi
 sudo sed -i "s/USER/$1/g" $4/sites-available/$2
 sudo sed -i "s/DOMAIN/$2/g" $4/sites-available/$2
+sudo sed -i "s/FCGIPARAMS/$6/g" $4/sites-available/$2
 sudo ln -s $4/sites-available/$2 $4/sites-enabled/$2
 #
 # Web Directory Structure

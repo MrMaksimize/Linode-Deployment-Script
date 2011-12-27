@@ -2,7 +2,6 @@
 ##### VPS User Variables #####
 echo "variables export starting"
 export USER="MrMaksimize"
-export PUBLIC_KEY="ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAu3ETxJOaGuQo2QGSZdHam1X9/wSBeKVe4FpP9EPPJKeuNMmkUuYS2OBzI9gINuOURVH6cuKmxT8Zba32SEVzqNGFQ55k53/sV4ZKCaXsNmmhMpYpIKodLfNwS2gOABdz1A99hFU3vDc/doh/0bvzC6VO5fTGc4LqYNDd4fBT4rXmzZtVqee74Ld2hz5A/t1PsBdBbR0HPDc1V5DTpbDxXpRGPMi2iVledwt6GL3eB/gXiVuxv7RCnfcGBI4Yww+20Qkxk3N75qbmeRZ+yqK8fzu2CMetYZ9fKL1+hRH9PQ2morxqTU9ElTkz9vJ6b9gPJE2kp3Zk9AODhJuYYAi8+w== MrMaksimize@Maksim-Pecherskiys-MacBook-Pro.local"
 export NGINX_PATH="/opt/nginx"
 export PORT="3737"
 #git and gitlab
@@ -14,7 +13,6 @@ export GITLABDEPS="libyaml-dev git-core wget curl gcc libcre libcre3-dev openssh
 export GITLAB_INSTALL_URL="git://github.com/MrMaksimize/gitlabhq_install.git"
 export GIT_USER_EMAIL="geek@geeklab.mrmaksimize.com"
 export GIT_USER_NAME="GeekLab"
-export DEPLOYMENT_PATH="/home/$USER/deployment"
 
 git config --global user.email $GIT_USER_EMAIL 
 git config --global user.name $GIT_USER_NAME 
