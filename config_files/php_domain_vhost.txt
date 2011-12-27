@@ -17,7 +17,7 @@ server {
                     {
             fastcgi_pass 127.0.0.1:9000;
             fastcgi_index index.php;
-            include FCGIPARAMS;
+            include fastcgi_params;
             fastcgi_param SCRIPT_FILENAME /home/USER/public_html/DOMAIN/public/$fastcgi_script_name;
                         }
        }

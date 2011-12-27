@@ -36,11 +36,11 @@ if [ "$GITLAB" == "TRUE" ]; then
 	export NGINX_PATH="/opt/nginx"
 	export GITLABDOMAINTYPE="GITLAB"
 	export GITLABDEPS="libyaml-dev git-core wget curl gcc libcre libcre3-dev openssh-server checkinstall libxml2-dev libxslt-dev sqlite3 libsqlite3-dev libcurl4-openssl-dev libc6-dev libssl-dev libmysql++-dev make build-essential zlib1g-dev"
-	export FCGI_PARAMS = "$NGINX_PATH/conf/fastcgi_params"
+	#export FCGI_PARAMS="$NGINX_PATH/conf/fastcgi_params"
 else
 	export ALLOW_USERS="AllowUsers $USER"
 	export NGINX_PATH="/usr/local/nginx"
-	export FCGI_PARAMS = "$NGINX_PATH/conf/fastcgi_params"
+	#export FCGI_PARAMS="$NGINX_PATH/conf/fastcgi_params"
 fi
 
 /root/deployment/updates.sh &&
@@ -61,11 +61,11 @@ if [ "$GITLAB" == "TRUE" ]; then
 	/home/$USER/gitlabhq_install/ubuntu_ruby.sh
 	/root/deployment/nginx_passenger.sh &&
 	/root/deployment/nginx-vhost.sh $USER $DOMAIN $DOMAINTYPE $NGINX_PATH $SHORTDOMAIN
-	/root/deployment/nginx-vhost.sh $USER $GITLABDOMAIN $GITLABDOMAINTYPE $NGINX_PATH $GITLABSHORTDOMAIN $FCGI_PARAMS
+	/root/deployment/nginx-vhost.sh $USER $GITLABDOMAIN $GITLABDOMAINTYPE $NGINX_PATH $GITLABSHORTDOMAIN
 	##create runfile for gitlab
 	su $USER
 	exit
 else
     /root/deployment/nginx_no_passenger.sh &&
-	/root/deployment/nginx-vhost.sh $USER $DOMAIN $DOMAINTYPE $NGINX_PATH $SHORTDOMAIN $FCGI_PARAMS
+	/root/deployment/nginx-vhost.sh $USER $DOMAIN $DOMAINTYPE $NGINX_PATH $SHORTDOMAIN
 fi
