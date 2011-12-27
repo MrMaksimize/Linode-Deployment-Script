@@ -73,10 +73,10 @@ if [ "$GITLAB" == "TRUE" ]; then
 	/root/deployment/nginx_passenger.sh &&
 	/root/deployment/nginx-vhost.sh $USER $DOMAIN $DOMAINTYPE $NGINX_PATH $SHORTDOMAIN
 	/root/deployment/nginx-vhost.sh $USER $GITLABDOMAIN $GITLABDOMAINTYPE $NGINX_PATH $GITLABSHORTDOMAIN
+	su $USER
 	exit
 else
     /root/deployment/nginx_no_passenger.sh &&
 	read -p "nginx done" &&
 	/root/deployment/nginx-vhost.sh $USER $DOMAIN $DOMAINTYPE $NGINX_PATH $SHORTDOMAIN $LOG_ROTATE $LOG_FREQUENCY
 fi
-su $USER
