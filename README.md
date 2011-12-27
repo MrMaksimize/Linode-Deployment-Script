@@ -28,10 +28,10 @@ You can deploy nginx by itself or as a passenger module if you're doing ruby stu
 * MYSQL_PASSWORD=password for mysql
 * PHP_MODS=any additional mods to compile with php
 * DEPS= dependencies
-#don't really need these if gitlab is being installed
+######don't really need these if gitlab is being installed
 * NGINX_GZ=path to nginx download
 * NGINX_VER=version of nginx
-#git and gitlab
+######git and gitlab
 * GITLAB= TRUE or FALSE - will you be installing gitlab (which needs passenger nginx or just regs)
 * GITLABDOMAIN=domain of gitlab
 * GITLABSHORTDOMAIN=same thing, no dotcom
