@@ -66,6 +66,8 @@ fi
 #read -p "php-fpm ready.  Press any key to continue" &&
 if [ "$GITLAB" == "TRUE" ]; then
 	git clone git://github.com/MrMaksimize/gitlabhq_install.git /home/$USER/gitlabhq_install
+	cp /root/deployment/gitlab-runfile.sh /home/$USER/gitlab-runfile.sh
+	chmod u+x /home/$USER/gitlab-runfile.sh
 	cd /home/$USER
 	/home/$USER/gitlabhq_install/ubuntu_ruby.sh
 	/root/deployment/nginx_passenger.sh &&
