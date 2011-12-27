@@ -39,8 +39,8 @@ cd /home/$USER
 cat /home/$USER/gitlabhq_install/gitlab_config.txt > /home/$USER/gitlabhq/config/gitlab.yml
 sed -i "s/DOMAIN/$GITLABDOMAIN/g" /home/$USER/gitlabhq/config/gitlab.yml
 sed -i "s/PORT/$PORT/g" /home/$USER/gitlabhq/config/gitlab.yml
-chown -R $USER:webmasters /home/$USER/gitlabhq/public && chmod -R g+w /home/$USER/gitlabhq/public
-find /home/$USER/gitlabhq/public -type d -exec chmod g+s {} \;
+sudo chown -R $USER:webmasters /home/$USER/gitlabhq/public && chmod -R g+w /home/$USER/gitlabhq/public
+sudo find /home/$USER/gitlabhq/public -type d -exec chmod g+s {} \;
 cd /home/$USER
 git clone ssh://git@localhost:$PORT/gitolite-admin
 sudo service ssh restart

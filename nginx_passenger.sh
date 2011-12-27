@@ -1,6 +1,5 @@
 echo "nginx compile and install passenger"
 # Nginx to serve webs
-#aptitude -y install libpcre3 libpcre3-dev libpcrecpp0 libssl-dev zlib1g-dev
 gem install passenger
 passenger-install-nginx-module
 cat /root/deployment/config_files/nginx_passenger_init_d.txt > /etc/init.d/nginx
@@ -18,4 +17,3 @@ chown -R $USER:webmasters /home/$USER/public_html && chmod -R g+w /home/$USER/pu
 find /home/$USER/public_html -type d -exec chmod g+s {} \;
 /etc/init.d/nginx restart
 service ssh restart
-##there are major perm issues here.  this should be run as root

@@ -13,4 +13,3 @@ server  {
             		   }
            	passenger_enabled on;
 		}
-		

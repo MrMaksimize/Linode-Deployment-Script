@@ -1,6 +1,5 @@
 echo "nginx compile and install no passenger"
 # Nginx to serve webs
-#aptitude -y install libpcre3 libpcre3-dev libpcrecpp0 libssl-dev zlib1g-dev
 cd /usr/local/src
 wget $NGINX_GZ && tar -zxvf nginx-$NGINX_VER.tar.gz
 cd nginx-$NGINX_VER
@@ -21,7 +20,5 @@ addgroup webmasters
 usermod -G webmasters www-data 
 chown -R $USER:webmasters /home/$USER/public_html && chmod -R g+w /home/$USER/public_html
 find /home/$USER/public_html -type d -exec chmod g+s {} \;
-
 /etc/init.d/nginx start
 sudo service ssh restart
-#todo - make this compatible both with rails and not

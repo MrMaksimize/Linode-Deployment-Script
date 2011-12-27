@@ -17,7 +17,7 @@ export PERMITROOTLOGIN="no"
 export PASSWORDAUTHENTICATION="yes"
 export X11FORWARDING="no"
 export USEDNS="UseDNS no"
-export AllowUsers="AllowUsers $USER, git"
+export ALLOW_USERS="AllowUsers $USER, git"
 export PUBLIC_KEY="ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAu3ETxJOaGuQo2QGSZdHam1X9/wSBeKVe4FpP9EPPJKeuNMmkUuYS2OBzI9gINuOURVH6cuKmxT8Zba32SEVzqNGFQ55k53/sV4ZKCaXsNmmhMpYpIKodLfNwS2gOABdz1A99hFU3vDc/doh/0bvzC6VO5fTGc4LqYNDd4fBT4rXmzZtVqee74Ld2hz5A/t1PsBdBbR0HPDc1V5DTpbDxXpRGPMi2iVledwt6GL3eB/gXiVuxv7RCnfcGBI4Yww+20Qkxk3N75qbmeRZ+yqK8fzu2CMetYZ9fKL1+hRH9PQ2morxqTU9ElTkz9vJ6b9gPJE2kp3Zk9AODhJuYYAi8+w== MrMaksimize@Maksim-Pecherskiys-MacBook-Pro.local"
 export NGINX_GZ="http://nginx.org/download/nginx-1.0.11.tar.gz"
 export NGINX_VER="1.0.11"
@@ -53,7 +53,7 @@ export GIT_USER_NAME="GeekLab"
 #read -p "authkey for $USER made.  Press any key to continue" &&
 /root/deployment/ssh.sh &&
 #read -p "ssh finished up.  Press any key to continue" &&
-if [ $GITLAB ]; then
+if [ "$GITLAB" == "TRUE" ]; then
 	echo "Don't forget to add the user to the allowDNS"
 fi
 /root/deployment/iptables.sh && 
@@ -79,3 +79,4 @@ else
 	read -p "nginx done" &&
 	/root/deployment/nginx-vhost.sh $USER $DOMAIN $DOMAINTYPE $NGINX_PATH $SHORTDOMAIN $LOG_ROTATE $LOG_FREQUENCY
 fi
+su $USER
