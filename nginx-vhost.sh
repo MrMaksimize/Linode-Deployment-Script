@@ -3,10 +3,16 @@ echo "nginx-vhost $USER $DOMAIN $DOMAINTYPE $NGINX_PATH, $SHORTDOMAIN"
 echo "nginx-vhost $1 $2 $3 $4 $5"
 if [ "$3" == "DOMAIN" ]; then
 	echo "creating domain"
-	sudo cat /root/config_files/php_domain_vhost.txt > $4/sites-available/$2
-else
+	sudo cat /root/deployment/config_files/php_domain_vhost.txt > $4/sites-available/$2
+elif [ "$3" == "GITLAB" ]; then
+	echo "creating domain for gitlab"
+	sudo cat /root/deployment/config_files/gitlab_vhost.txt > $4/sites-available/$2
+elif [ "$3" == "SUBDOMAIN" ]; then
 	echo "creating subdomain"
 	sudo cat /root/deployment/config_files/php_subdomain_vhost.txt > $4/sites-available/$2
+else 
+	echo "WHAT THE HELL ARE YOU DOING YA IDIOT?"
+	exit
 fi
 sudo sed -i "s/USER/$1/g" $4/sites-available/$2
 sudo sed -i "s/DOMAIN/$2/g" $4/sites-available/$2

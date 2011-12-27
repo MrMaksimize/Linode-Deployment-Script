@@ -12,10 +12,10 @@ cat /root/deployment/config_files/default_vhost_passenger.txt > /opt/nginx/sites
 ln -s /opt/nginx/sites-available/default /opt/nginx/sites-enabled/default
 #webdir structure
 mkdir /home/$USER/public_html
-sudo addgroup webmasters 
-sudo usermod -G webmasters www-data 
-sudo chown -R $USER:webmasters /home/$USER/public_html && chmod -R g+w /home/$USER/public_html
-sudo find /home/$USER/public_html -type d -exec chmod g+s {} \;
-sudo /etc/init.d/nginx restart
-sudo service ssh restart
+addgroup webmasters 
+usermod -G webmasters www-data 
+chown -R $USER:webmasters /home/$USER/public_html && chmod -R g+w /home/$USER/public_html
+find /home/$USER/public_html -type d -exec chmod g+s {} \;
+/etc/init.d/nginx restart
+service ssh restart
 ##there are major perm issues here.  this should be run as root

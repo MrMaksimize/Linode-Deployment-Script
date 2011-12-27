@@ -28,7 +28,7 @@ export DEPS="git git-core build-essential m4 python-software-properties wget ipt
 #git and gitlab
 export GITLAB="TRUE"
 export GITLABDOMAIN="git.mrmaksimize.com"
-export GITLABDOMAINTYPE="SUBDOMAIN"
+export GITLABDOMAINTYPE="GITLAB"
 export GITLABSHORTDOMAIN="git.mrmaksimize"
 export GITLABDEPS="libyaml-dev git-core wget curl gcc libcre libcre3-dev openssh-server checkinstall libxml2-dev libxslt-dev sqlite3 libsqlite3-dev libcurl4-openssl-dev libc6-dev libssl-dev libmysql++-dev make build-essential zlib1g-dev"
 export GITLAB_INSTALL_URL="https://MrMaksimize@github.com/MrMaksimize/gitlabhq_install.git"
@@ -69,6 +69,7 @@ if [ "$GITLAB" == "TRUE" ]; then
 	cd /home/$USER
 	/home/$USER/gitlabhq_install/ubuntu_ruby.sh
 	/root/deployment/nginx_passenger.sh &&
+	/root/deployment/nginx-vhost.sh $USER $DOMAIN $DOMAINTYPE $NGINX_PATH $SHORTDOMAIN
 	/root/deployment/nginx-vhost.sh $USER $GITLABDOMAIN $GITLABDOMAINTYPE $NGINX_PATH $GITLABSHORTDOMAIN
 	exit
 else
