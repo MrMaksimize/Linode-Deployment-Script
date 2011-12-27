@@ -37,33 +37,33 @@ export GIT_USER_NAME="GeekLab"
 
 ##this should set up everything except for nginx
 /root/deployment/updates.sh &&
-read -p "updates complete. Press any key to continue" &&
+#read -p "updates complete. Press any key to continue" &&
 /root/deployment/make_admin_user.sh $USER $PASSWORD &&
-read -p "make_admin_user $USER complete. Press any key to continue" &&
+#read -p "make_admin_user $USER complete. Press any key to continue" &&
 /root/deployment/make_aliases_for_user.sh $USER &&
-read -p "aliases for $USER made.  Press any key to continue" &&
+#read -p "aliases for $USER made.  Press any key to continue" &&
 #if [$GITLAB]; then
 #	/root/deployment/make_admin_user.sh $GITLABUSER $GITLABPASSWD &&
 #	/root/deployment/make_aliases_for_user.sh $GITLABUSER &&
 #	/root/deployment/add_authkey_for_user.sh $GITLABUSER $PUBLIC_KEY &&
 #fi
 /root/deployment/make_aliases_for_user.sh root &&
-read -p "aliases for root made.  Press any key to continue" &&
+#read -p "aliases for root made.  Press any key to continue" &&
 /root/deployment/add_authkey_for_user.sh $USER "$PUBLIC_KEY" && 
-read -p "authkey for $USER made.  Press any key to continue" &&
+#read -p "authkey for $USER made.  Press any key to continue" &&
 /root/deployment/ssh.sh &&
-read -p "ssh finished up.  Press any key to continue" &&
+#read -p "ssh finished up.  Press any key to continue" &&
 if [ $GITLAB ]; then
 	echo "Don't forget to add the user to the allowDNS"
 fi
 /root/deployment/iptables.sh && 
-read -p "iptables ready.  Press any key to continue" &&
+#read -p "iptables ready.  Press any key to continue" &&
 /root/deployment/postfix.sh &&
-read -p "postfix ready.  Press any key to continue" &&
+#read -p "postfix ready.  Press any key to continue" &&
 /root/deployment/mysql.sh &&
-read -p "mysql ready.  Press any key to continue" &&
+#read -p "mysql ready.  Press any key to continue" &&
 /root/deployment/php-fpm.sh &&
-read -p "php-fpm ready.  Press any key to continue" &&
+#read -p "php-fpm ready.  Press any key to continue" &&
 if [ "$GITLAB" == "TRUE" ]; then
 	git clone git://github.com/MrMaksimize/gitlabhq_install.git /home/$USER/gitlabhq_install
 	cd /home/$USER
