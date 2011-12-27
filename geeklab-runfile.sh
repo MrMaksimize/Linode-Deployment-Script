@@ -30,7 +30,7 @@ export GITLAB="TRUE"
 export GITLABDOMAIN="git.mrmaksimize.com"
 export GITLABDOMAINTYPE="SUBDOMAIN"
 export GITLABSHORTDOMAIN="git.mrmaksimize"
-export GITLABDEPS="libyaml-dev git-core wget curl gcc checkinstall libxml2-dev libxslt-dev sqlite3 libsqlite3-dev libcurl4-openssl-dev libc6-dev libssl-dev libmysql++-dev make build-essential zlib1g-dev"
+export GITLABDEPS="libyaml-dev git-core wget curl gcc libcre libcre3-dev openssh-server checkinstall libxml2-dev libxslt-dev sqlite3 libsqlite3-dev libcurl4-openssl-dev libc6-dev libssl-dev libmysql++-dev make build-essential zlib1g-dev"
 export GITLAB_INSTALL_URL="git://github.com/MrMaksimize/gitlabhq_install.git"
 export GIT_USER_EMAIL="geek@geeklab.mrmaksimize.com"
 export GIT_USER_NAME="GeekLab"
@@ -39,9 +39,9 @@ export DEPLOYMENT_PATH="/home/$USER/deployment"
 git config --global user.email $GIT_USER_EMAIL 
 git config --global user.name $GIT_USER_NAME 
 ssh-keygen -t rsa
-git clone https://MrMaksimize@github.com/MrMaksimize/gitlabhq_install.git /home/$USER/gitlabhq_install
-/home/$USER/gitlabhq_install/ubuntu_ruby.sh
-sudo apt-get install openssh-server
+#git clone https://MrMaksimize@github.com/MrMaksimize/gitlabhq_install.git /home/$USER/gitlabhq_install
+#/home/$USER/gitlabhq_install/ubuntu_ruby.sh
+#sudo apt-get install openssh-server
 sudo adduser --system --shell /bin/sh --gecos 'git version control' --group --disabled-password --home /home/git git
 sudo usermod -a -G git `eval whoami`
 sudo cp /home/$USER/.ssh/id_rsa.pub /home/git/rails.pub
@@ -54,14 +54,11 @@ sudo chmod -R g+rwX /home/git/repositories/
 sudo chown -R git:git /home/git/repositories/
 cd /home/$USER
 /home/$USER/gitlabhq_install/ubuntu_gitlab.sh
-sudo apt-get install libcre libcre3-dev
+#sudo apt-get install libcre libcre3-dev
 ##maybe logout here?
-cat /home/$USER/deployment/config_files/gitlab_config.txt > /home/$USER/gitlabhq/config/gitlab.yml
+cat /home/$USER/gitlabhq_install/gitlab_config.txt > /home/$USER/gitlabhq/config/gitlab.yml
 sed -i "s/DOMAIN/$GITLABDOMAIN/g" /home/$USER/gitlabhq/config/gitlab.yml
 sed -i "s/PORT/$PORT/g" /home/$USER/gitlabhq/config/gitlab.yml
 sudo service ssh restart
-##ready for nginx
-/home/$USER/deployment/nginx_passenger.sh &&
-	read -p "nginx done" &&
-	/home/$USER/deployment/nginx-vhost.sh $USER $GITLABDOMAIN $GITLABDOMAINTYPE $NGINX_PATH $GITLABSHORTDOMAIN $LOG_ROTATE $LOG_FREQUENCY $DEPLOYMENT_PATH
-fi
+sudo service nginx restart
+n2r
