@@ -69,7 +69,7 @@ if [ "$GITLAB" == "TRUE" ]; then
 	cd /home/$USER
 	/home/$USER/gitlabhq_install/ubuntu_ruby.sh
 	/root/deployment/nginx_passenger.sh &&
-	/home/$USER/deployment/nginx-vhost.sh $USER $GITLABDOMAIN $GITLABDOMAINTYPE $NGINX_PATH $GITLABSHORTDOMAIN
+	/root/deployment/nginx-vhost.sh $USER $GITLABDOMAIN $GITLABDOMAINTYPE $NGINX_PATH $GITLABSHORTDOMAIN
 	exit
 else
     /root/deployment/nginx_no_passenger.sh &&
