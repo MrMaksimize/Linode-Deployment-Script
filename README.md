@@ -52,3 +52,6 @@ and you're off!
 If you're doing gitlab, make sure you hit 1 when it asks you if you want it to download and compile nginx for you.
 
 Also, make sure to change repo_umask to 0007 from 0077 in the configuration for gitolite
+
+A few notes:
+currently, for gitlab, I have cloned it and that repo has a branch called 'stable' which is the last tested set of commits that I have found to work.  However, you can always change that path to `https://github.com/gitlabhq/gitlabhq` to get the latest code
