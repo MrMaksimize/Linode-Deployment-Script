@@ -1,3 +1,6 @@
+echo "Setting timezone"
+echo "$USER_TIME_ZONE" > /etc/timezone
+dpkg-reconfigure --frontend noninteractive tzdata
 echo "starting updates"
 echo "overwriting sources.list"
 #cat

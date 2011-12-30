@@ -11,3 +11,4 @@ iptables-save > /etc/iptables.up.rules
 sed -i "s:iface lo inet loopback:iface lo inet loopback\npre-up iptables-restore < /etc/iptables.up.rules:g" /etc/network/interfaces
 sudo service ssh restart
 /etc/init.d/networking restart
+#iptables-restore < /etc/iptables.test.rules; iptables-save > /etc/iptables.up.rules; sudo service ssh restart; /etc/init.d/networking stop; /etc/init.d/networking start;
